@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>調整さん用コピペ作成（2025年）</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .calendar-table {
+            border-collapse: collapse;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .calendar-table th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+        }
+        .calendar-cell {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .calendar-cell:hover {
+            background-color: #f0f0f0;
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        #schedule_display {
+            white-space: pre;
+            text-align: center;
+            font-family: monospace;
+            margin: 20px auto;
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>調整さん用コピペ作成（2025年）</h1>
+    <form method="post">
+        <select name="month" onchange="this.form.submit()">
+            <!-- 月のオプションはFlask側で埋め込み -->
+            {{ month_options|safe }}
+        </select>
+        <h3>選択された月: 2025年{{ selected_month }}月</h3>
+        <p>開始日を選択してください：</p>
+        {{ start_calendar|safe }}
+        <p>終了日を選択してください：</p>
+        {{ end_calendar|safe }}
+        <br><br>
+        <input type="submit" value="決定">
+    </form>
+    <hr>
+    <div style="text-align: center;">
+        <div id="schedule_display">{{ schedule_display }}</div>
+    </div>
+    <hr>
+    <p>現在時刻: {{ time }}</p>
+</body>
+</html>
