@@ -72,23 +72,50 @@
 <body>
     <h1>調整さん用コピペ作成（2025年）</h1>
     <form method="post">
-        <select name="month" onchange="this.form.submit()">
-            <!-- 月のオプションはFlask側で埋め込み -->
-            {{ month_options|safe }}
+        <select name="month">
+            <option value="1">1月</option>
+            <option value="2">2月</option>
+            <option value="3">3月</option>
+            <option value="4" selected>4月</option>
+            <option value="5">5月</option>
+            <option value="6">6月</option>
         </select>
-        <h3>選択された月: 2025年{{ selected_month }}月</h3>
+        <h3>選択された月: 2025年4月</h3>
         <p>開始日を選択してください：</p>
-        {{ start_calendar|safe }}
+        <table class="calendar-table">
+            <tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
+            <tr>
+                <td class="calendar-cell">30</td><td class="calendar-cell">31</td><td class="calendar-cell">1</td>
+                <td class="calendar-cell">2</td><td class="calendar-cell">3</td><td class="calendar-cell">4</td>
+                <td class="calendar-cell">5</td>
+            </tr>
+            <!-- 他の日付も続けて追加 -->
+        </table>
         <p>終了日を選択してください：</p>
-        {{ end_calendar|safe }}
+        <table class="calendar-table">
+            <tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
+            <tr>
+                <td class="calendar-cell">6</td><td class="calendar-cell">7</td><td class="calendar-cell">8</td>
+                <td class="calendar-cell">9</td><td class="calendar-cell">10</td><td class="calendar-cell">11</td>
+                <td class="calendar-cell">12</td>
+            </tr>
+            <!-- 他の日付も続けて追加 -->
+        </table>
         <br><br>
         <input type="submit" value="決定">
     </form>
     <hr>
     <div style="text-align: center;">
-        <div id="schedule_display">{{ schedule_display }}</div>
+        <div id="schedule_display">
+2025年4月予定表
+
+4/1（火）
+4/2（水）
+4/3（木）
+...
+        </div>
     </div>
     <hr>
-    <p>現在時刻: {{ time }}</p>
+    <p>現在時刻: 2025-04-24 10:00:00</p>
 </body>
 </html>
